@@ -1,0 +1,6 @@
+git/hugging face/openAI
+importation des donnée
+classification des images 
+model de classification
+
+loss calculate
