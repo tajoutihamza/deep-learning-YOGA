@@ -1,7 +1,7 @@
 Dear Students,
 We are delighted to announce the launch of a new Deep Learning LAB. This project aims to offer you a unique opportunity to discover the fundamental principles of Deep Learning and to develop your programming skills.
 We are convinced that this project will be an enriching experience for you and will allow you to acquire valuable skills for your future career.
-In this context, we are pleased to inform you that we have attached a detailed description of the LAB1 and a database that will help you better understand the objectives and expectations of this project.
+In this context, we are pleased to inform you that we have prepared a detailed description of the LAB1 and a database that will help you better understand the objectives and expectations of this project.
 Tasks to be Completed:
 Use at least three different architectures.
 Two of the architectures must be built from scratch.
@@ -22,7 +22,7 @@ The yoga pose image classification problem involves automatically classifying im
 warrior pose, etc. This can be accomplished using image recognition algorithms, such as convolutional neural network (CNN). 
 One of the challenges of the yoga position image classification problem is that the positions may be similar and the differences between them may be subtle. There may also be variations between individuals performing the same positions, which can make accurate classification more difficult.
 To address this problem, it may be necessary to collect a large number of labeled images of yoga positions and then train a classification model on these images so that it can be used to classify unlabeled images. It is also important to check the accuracy of the model using validation data, such as images that were not used to train the model. 
-You have attached a data set as an example to help you perform this lab. 
+You have a dataset to help you perform this lab under this path DATASET, the dataset have only two poses downdog and goddess which we're going to train our model on it.
 
 a jyputer file requested, which contains the following steps :
 • Business Understanding
