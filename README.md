@@ -891,3 +891,151 @@ Linear:
 
 This combination (ReLU + Softmax) has become standard because it works well for most deep learning tasks.
 
+Let me break down this evaluation code into main parts:
+
+**1. Training History Plots**
+```python
+# Creates two plots side by side
+plt.subplot(1, 2, 1)  # Accuracy Plot
+plt.subplot(1, 2, 2)  # Loss Plot
+
+# Shows:
+- Training accuracy/loss (blue line)
+- Validation accuracy/loss (orange line)
+- How model improves over epochs
+```
+
+**2. Test Set Evaluation**
+```python
+# Get overall performance
+test_loss, test_acc = model.evaluate(test_generator)
+# Shows final accuracy and loss on test data
+```
+
+**3. Confusion Matrix**
+```python
+# Creates heatmap showing:
+- True Positives (correct predictions)
+- False Positives (wrong predictions)
+- False Negatives (missed predictions)
+
+Example for binary classification:
+[90  10]  # 90 correct class 0, 10 wrong
+[5   95]  # 5 wrong, 95 correct class 1
+```
+
+**4. Classification Report**
+```python
+# Shows detailed metrics:
+- Precision (accuracy of positive predictions)
+- Recall (ability to find all positives)
+- F1-score (balance of precision and recall)
+```
+
+**5. Sample Predictions**
+```python
+# Shows 10 example images with:
+- Original image
+- True label
+- Predicted label
+- Green: correct prediction
+- Red: wrong prediction
+```
+
+This evaluation helps understand:
+- How well the model learned
+- Where it makes mistakes
+- Overall performance metrics
+- Visual confirmation of predictions
+
+Let me explain the Confusion Matrix in a simple way:
+
+**Basic Structure (Binary Classification)**
+```
+                 Predicted
+Actual    [Negative  Positive]
+Negative  [   TN       FP   ]
+Positive  [   FN       TP   ]
+
+TN = True Negative
+FP = False Positive
+FN = False Negative
+TP = True Positive
+```
+
+**Real Example (Cat vs Dog)**
+```
+Predicted →    Dog    Cat
+Actual Dog  [  90     10  ]
+Actual Cat  [  5      95  ]
+
+Means:
+- 90 dogs correctly identified as dogs (TN)
+- 10 dogs wrongly identified as cats (FP)
+- 5 cats wrongly identified as dogs (FN)
+- 95 cats correctly identified as cats (TP)
+```
+
+**What It Tells Us:**
+1. **Accuracy** = (TP + TN) / Total
+```python
+(90 + 95) / 200 = 92.5%
+```
+
+2. **Common Mistakes**
+```python
+- Where model confuses classes
+- Which class is harder to predict
+```
+
+3. **Model Bias**
+```python
+- If model favors one class
+- If predictions are balanced
+```
+
+This helps us:
+- Find model weaknesses
+- Understand error types
+- Improve model performance
+- Make better decisions about model usage
+
+Let me explain F1-Score in a very simple way:
+
+**F1-Score Simplified:**
+```python
+# It's a balance between:
+1. How precise we are (Precision)
+2. How many we catch (Recall)
+```
+
+**Real-World Example:**
+```
+Fishing Analogy:
+Precision: How many fish (vs trash) you catch
+Recall: How many fish you catch out of all fish in pond
+
+Good F1 = Good at both catching lots of fish AND not catching trash
+```
+
+**Scores Example:**
+```
+Bad F1 (0.2):
+- Catches very few fish
+- OR catches lots of trash
+
+Medium F1 (0.5):
+- Good at one thing but bad at other
+- Catches many fish but also lots of trash
+- OR catches very few fish but all are correct
+
+Good F1 (0.9):
+- Catches most fish
+- Almost no trash caught
+```
+
+**Simple Rule:**
+- F1 is high only when both Precision and Recall are good
+- F1 is low if either Precision or Recall is bad
+- Perfect F1 = 1.0
+- Worst F1 = 0.0
